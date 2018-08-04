@@ -4,6 +4,8 @@
 // init project
 var express = require('express');
 var app = express();
+var fs = require('fs');
+var archiver = require('archiver');
 
 // we've started you off with Express, 
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
@@ -15,6 +17,22 @@ app.use(express.static('public'));
 app.get('/', function(request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
+
+// Download xpi
+app.get('/download', function(req, res){
+  let sourcepath = 'extension/';
+  res.header('Content-Type', 'application/x-xpinstall');
+  //res.header('Content-Type', 'application/zip');
+  //res.header('Content-Disposition: attachment; filename=my-extension.zip');
+  makeArchive(sourcepath, res);
+});
+
+function makeArchive(sourcepath, res) {
+  var archive = archiver('zip');
+  archive.pipe(res);
+  archive.directory(sourcepath, false);
+  archive.finalize();
+}
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function() {
