@@ -1,12 +1,3 @@
-<!-- This is a static file -->
-<!-- served from your routes in server.js -->
-
-<!-- You might want to try something fancier: -->
-<!-- html/nunjucks docs: https://mozilla.github.io/nunjucks/ -->
-<!-- pug: https://pugjs.org/ -->
-<!-- haml: http://haml.info/ -->
-<!-- hbs(handlebars): http://handlebarsjs.com/ -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,23 +17,25 @@
   <body>
     <header>
       <h1>
-        A Dream of the Future
+        WebExtension Playground
       </h1>
     </header>
 
     <main>
-      <p class="bold">Oh hi,</p>
+      <p>
+        This Glitch allows you to build and test a browser extension in the browser.
+      </p>
       
-      <p>Tell me your hopes and dreams:</p>
+      <ol>
+        <li>Click the Fish in the top right</li>
+        <li>Choose "Remix on Glitch" to copy this project</li>
+        <li>Learn about <a href="https://developer.mozilla.org/en-US/Add-ons/WebExtensions">Browser Extensions on MDN</a></li>
+        <li>Edit the files in the /extension directory in the Glitch editor</li>
+        <li>View this page by clicking "Show [Live]" above</li>
+        <li>Click the "Install!" button below</li>
+      </ol>
       
-      <form>
-        <input name="dream" type="text" maxlength="100" placeholder="Dreams!" aria-labelledby="submit-dream">
-        <button type="submit" id="submit-dream">Submit Dream</button>
-      </form>
-      
-      <section class="dreams">
-        <ul id="dreams"></ul>
-      </section>
+      <a href="/download">Install!</a>
     </main>
 
     <footer>
